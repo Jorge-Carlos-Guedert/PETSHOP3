@@ -1,20 +1,79 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+  <ion-header>
+    <ion-toolbar class="toolbar">
+      <ion-title class="title" size="small"
+        >PET SHOP BOM PARA CACHORRO
+      </ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <img src="http://wallpapercave.com/wp/wp12146395.jpg" />
   </div>
+
+  <form class="form">
+    <p>Cadastre seu Pet</p>
+    <p>Insira os dados do seu Pet</p>
+
+    <div class="flex">
+      <label position="floating">
+        <ion-input
+          required
+          placeholder="Nome"
+          type="text"
+          class="input"
+          style="width: 110px"
+          name="nome"
+          id="nome"
+          value="nome"
+          [(ngModel)]="nome"
+        >
+        </ion-input>
+        <!-- <span>Nome</span> -->
+      </label>
+
+      <label>
+        <ion-input
+          required
+          placeholder="Idade"
+          type="number"
+          class="input"
+          style="width: 110px"
+          name="idade"
+          id="idade"
+          value="idade"
+          [(ngModel)]="idade"
+        >
+        </ion-input>
+        <!-- <span>Idade</span> -->
+      </label>
+
+      <ion-row>
+        <ion-button
+          Custom
+          Button
+          size="default"
+          fill="outline"
+          shape="round"
+          expand="full"
+          class="submit"
+          id="botaocadastrar"
+          (click)="salvandoPet()"
+          >{{LabelBotaoCadastrar}}</ion-button
+        >
+        <ion-button
+          Custom
+          Button
+          size="default"
+          fill="outline"
+          shape="round"
+          expand="full"
+          class="submit"
+          id="botaoconsultar"
+          (click)="consultarPet()"
+          >{{LabelBotaoConsultar}}</ion-button
+        >
+      </ion-row>
+    </div>
+  </form>
 </ion-content>

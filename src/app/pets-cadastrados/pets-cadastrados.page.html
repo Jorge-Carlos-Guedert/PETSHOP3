@@ -1,0 +1,30 @@
+  <ion-content [fullscreen]="true" class="tela">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <p>CACHORROS CADASTRADOS</p>
+      </ion-toolbar>
+    </ion-header>
+  
+    <table>
+      <tr>
+        <th class="foto">Foto</th>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Excluir</th>
+      </tr>
+    <tr height="60px">	
+      <td width="30%" height="10%"></td>
+      <td width="30%" >JORGE</td>
+      <td width="30%" >49</td>
+      <td width="10%"><ion-icon name="trash-outline"></ion-icon></td>
+      </tr>
+  
+    </table>
+  
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="margin: 2rem">
+      <ion-fab-button  color="dark" (click)="novo()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>
+
