@@ -1,11 +1,11 @@
-  <ion-content [fullscreen]="true" class="tela">
+  <!-- <ion-content [fullscreen]="true" class="tela">
     <ion-header collapse="condense">
       <ion-toolbar>
         <p>CACHORROS CADASTRADOS</p>
       </ion-toolbar>
     </ion-header>
-  
-    <table>
+    <div class="tabela" id="tabela">
+    <table id="tabelaCahorros">
       <tr>
         <th class="foto">Foto</th>
         <th>Nome</th>
@@ -20,6 +20,7 @@
       </tr>
   
     </table>
+  </div>
   
     <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="margin: 2rem">
       <ion-fab-button  color="dark" (click)="novo()">
@@ -27,4 +28,15 @@
       </ion-fab-button>
     </ion-fab>
 </ion-content>
+ -->
 
+ <ion-content [fullscreen]="true" class="content">
+  <div>
+    <ion-card class="card">
+      <img>
+      <ion-card-header class="cardheader">
+        <ion-card-subtitle class="cardsubtitle">Subtitilo - Subtitilo</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </div>
+ </ion-content>

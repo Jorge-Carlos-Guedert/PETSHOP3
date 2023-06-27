@@ -1,9 +1,7 @@
-import { Pet } from './../models/pet.models';
-import { PreloadAllModules } from '@angular/router';
-import { NgModel } from '@angular/forms';
 import { NavController, ToastController } from '@ionic/angular';
 import { PetService } from './../pet.service';
 import { Component, NgModule } from '@angular/core';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 
 import { PetsCadastradosPage } from '../pets-cadastrados/pets-cadastrados.page';
 
@@ -15,11 +13,12 @@ import { PetsCadastradosPage } from '../pets-cadastrados/pets-cadastrados.page';
 export class HomePage {
   dados: any = {};
 
-  pet: Pet = {
+  pet = {
     nome: '',
     idade: null,
   };
-
+  public  mandanome = this.pet.nome;
+  public mandaidade = this.pet.idade;
   LabelBotaoCadastrar = 'CADASTRAR';
   LabelBotaoConsultar = 'CONSULTAR';
 
@@ -29,19 +28,9 @@ export class HomePage {
     public petService: PetService,
     public toast: ToastController,
     public nav: NavController,
-    // public input: NgModel,
-    // public ngModule: NgModule
   ) {}
 
-  botaoCadastrar(evento: any) {
-    const clicado = evento.detail.value;
-   
-  }
-
-  submitForm(e: Event){
-    console.log(this.idade, this.nome);
-  }
-
+  
   async salvandoPet() {
     this.petService.salvarPet(this.pet);
     this.pet.nome = '';
@@ -49,36 +38,31 @@ export class HomePage {
     const toast = await this.toast.create({
       color: 'success',
       message: 'Salvo com sucesso.',
-      position: 'middle',
-      duration: 1000,
+      position: 'bottom',
+      duration: 500,
     });
     toast.present();
-    this.nav.navigateForward('pets-cadastrados');
+    // this.nav.navigateForward('pets-cadastrados');
   }
 
-    nome = document.getElementById("nome");
-    nomeweb = localStorage.getItem.name;
-    idade = document.getElementById("idade");
-    idadeweb = localStorage.getItem.name;
   
-    
+  // if( this.mandanome == '' || this.mandaidade == null) {
 
-  // if(this.pet.nome == '' || this.pet.idade == null) {
-  //   this.exibeToast('Preencha os campos necessários', 'danger');
-  //   }else{
 
-  //   }
+  //    this.exibeToast('Preencha os campos necessários', 'danger');
+
+  //    }else{
+
+  //     salvandoPet();
+
+  //    }
 
   consultarPet() {
     const pets = this.petService.getPets();
-    console.log(pets);
     this.nav.navigateForward('pets-cadastrados');
   }
 
-  // ionViewDidEnter() {
-  //   this.petService.limparPets();
-  // }
-
+  
   async exibeToast(msg: string, cor: string) {
     const toast = await this.toast.create({
       message: msg,
@@ -88,7 +72,4 @@ export class HomePage {
       color: cor,
     });
   }
-
-  
-  
 }

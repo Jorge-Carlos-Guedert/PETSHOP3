@@ -1,3 +1,4 @@
+import { Pet } from './../models/pet.models';
 import { AlertController, NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { PetService } from '../pet.service';
@@ -21,3 +22,7 @@ export class PetsCadastradosPage implements OnInit {
 
   ngOnInit(): void {}
 }
+
+
+
+

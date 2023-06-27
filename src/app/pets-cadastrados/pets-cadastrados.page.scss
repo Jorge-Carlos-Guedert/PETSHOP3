@@ -1,41 +1,27 @@
-table{
-    width: 100%;
-    // border: 2px;
-    border-style: solid;
-    border-width: 1px;
-}
-
-tr{
-    height: 70px;
-    text-align: center;
+.content{
     
-    border-style: solid;
-    border-width: 1px;
-}
-
-.foto{
-    size: 30%;
-}
-
-p{
-    text-align: center;
-    font-size: large;
-}
-
-th{
-    border-style: solid;
-    border-width: 1px;
-    font-size: small;
-    text-align: center;
+    border-color: red;
+    border-width: 3px;
 
 }
-
-td{
-    border-style: solid;
-    border-width: 1px;
-    font-size: small;
-    text-align: center;
-
+.card{
+    
+    border-color: red;
+    border-width: 3px;
+    background-color: aqua;
+    
 }
 
+.cardheader{
+    
+    border-color: red;
+    border-width: 3px;
+    
+}
 
+.cardsubtitle{
+    
+    border-color: red;
+    border-width: 3px;
+    
+}
