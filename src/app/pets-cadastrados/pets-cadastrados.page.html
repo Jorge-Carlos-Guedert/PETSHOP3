@@ -1,42 +1,38 @@
-  <!-- <ion-content [fullscreen]="true" class="tela">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <p>CACHORROS CADASTRADOS</p>
-      </ion-toolbar>
-    </ion-header>
-    <div class="tabela" id="tabela">
-    <table id="tabelaCahorros">
-      <tr>
-        <th class="foto">Foto</th>
-        <th>Nome</th>
-        <th>Idade</th>
-        <th>Excluir</th>
-      </tr>
-    <tr height="60px">	
-      <td width="30%" height="10%"></td>
-      <td width="30%" >JORGE</td>
-      <td width="30%" >49</td>
-      <td width="10%"><ion-icon name="trash-outline"></ion-icon></td>
-      </tr>
-  
-    </table>
-  </div>
-  
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="margin: 2rem">
-      <ion-fab-button  color="dark" (click)="novo()">
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-</ion-content>
- -->
-
  <ion-content [fullscreen]="true" class="content">
-  <div>
+  <div class="divcard">
     <ion-card class="card">
-      <img>
-      <ion-card-header class="cardheader">
-        <ion-card-subtitle class="cardsubtitle">Subtitilo - Subtitilo</ion-card-subtitle>
-      </ion-card-header>
+      <!-- <img src="http://wallpapercave.com/wp/wp12146395.jpg" /> -->
+      <img src="{{imagem}}" width="200" height="200" />
+      <ion-card-header class="cardheader">cardheader IDADE:{{ Anos
+        <ion-card-subtitle class="cardsubtitle">NOME: {{NOMECACHORRO</ion-card-subtitle>
+      </ion-card-header> 
+      <ion-row class="row">
+        <ion-col></ion-col>
+        <ion-col ></ion-col>
+        <ion-col class="coltrash">
+          <ion-button size="small" color="danger">
+            <ion-icon name="trash-outline"></ion-icon>
+            <ion-label style="margin-top: 0; margin-left: 6cqh"
+              >EXCLUIR</ion-label
+            >
+          </ion-button>
+        </ion-col>
+      </ion-row>
     </ion-card>
   </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
  </ion-content>

@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Pet } from './models/pet.models';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PetService {
   key = 'pets';
+  url = 'https://dog.ceo/api/breeds/image/random';
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getPets(): Pet[] {
     var listaCachorrosSTR = localStorage.getItem(this.key);
-    console.log(this.key);
+    
     var listaCachorros: Pet[] = [];
     if (listaCachorrosSTR) {
       listaCachorros = JSON.parse(listaCachorrosSTR!);
@@ -29,5 +31,9 @@ export class PetService {
 
   limparPets() {
     localStorage.removeItem(this.key);
+  }
+
+  buscarImagem(quantidade:number) {
+    return this.http.get(this.url+"/"+quantidade);
   }
 }
