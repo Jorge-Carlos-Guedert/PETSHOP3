@@ -12,7 +12,8 @@ import { Subject } from 'rxjs';
 })
 export class PetsCadastradosPage implements OnInit {
   //petsubject = new Subject<Pet[]>();
-  imagem = [];
+  //imagem = [];  descomntar 
+  imagem = "http://wallpapercave.com/wp/wp12146395.jpg";
   petList: Pet[]= [];
 
   constructor(

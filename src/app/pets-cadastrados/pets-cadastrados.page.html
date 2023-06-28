@@ -2,7 +2,7 @@
   <div class="divcard">
     <ion-card class="card">
       <!-- <img src="http://wallpapercave.com/wp/wp12146395.jpg" /> -->
-      <img src="{{imagem}}" width="200" height="200" />
+      <img src="{{imagem}}" width="100%" height="auto" />
       <ion-card-header class="cardheader">cardheader IDADE:{{ Anos
         <ion-card-subtitle class="cardsubtitle">NOME: {{NOMECACHORRO</ion-card-subtitle>
       </ion-card-header> 
@@ -22,7 +22,11 @@
   </div>
 
 
-
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="margin: 2rem">
+    <ion-fab-button  color="dark" (click)="novo()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   
 
 

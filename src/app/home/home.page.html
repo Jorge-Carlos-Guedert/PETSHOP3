@@ -11,9 +11,9 @@
     <img src="http://wallpapercave.com/wp/wp12146395.jpg" />
   </div>
 
+  <p class="cadastre">Cadastre seu Pet</p>
+  <p class="insira">Insira os dados do seu Pet</p>
   <form class="form">
-    <p>Cadastre seu Pet</p>
-    <p>Insira os dados do seu Pet</p>
 
     <div class="flex">
       <label position="floating">
@@ -49,30 +49,31 @@
       </label>
 
       <ion-row>
-        <ion-button
-          Custom
-          Button
-          size="default"
-          fill="outline"
-          shape="round"
-          expand="full"
-          class="submit"
-          
-          (click)="salvandoPet()"
-          >{{LabelBotaoCadastrar}}</ion-button
-        >
-        <ion-button
-          Custom
-          Button
-          size="default"
-          fill="outline"
-          shape="round"
-          expand="full"
-          class="submit"
-          
-          (click)="consultarPet()"
-          >{{LabelBotaoConsultar}}</ion-button
-        >
+        <ion-col size="3rem">
+
+          <ion-button
+            Custom
+            Button
+            size="default"
+            fill="outline"
+            shape="round"
+            expand="full"
+            class="botaoCadastrar"
+            (click)="salvandoPet()"
+            >{{LabelBotaoCadastrar}}</ion-button
+          >
+          <ion-button
+            Custom
+            Button
+            size="default"
+            fill="outline"
+            shape="round"
+            expand="full"
+            class="botaoConsultar"
+            (click)="consultarPet()"
+            >{{LabelBotaoConsultar}}</ion-button
+          >
+        </ion-col>
       </ion-row>
     </div>
   </form>

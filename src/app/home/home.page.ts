@@ -1,7 +1,11 @@
 import { NavController, ToastController } from '@ionic/angular';
 import { PetService } from './../pet.service';
 import { Component, NgModule } from '@angular/core';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { PetsCadastradosPage } from '../pets-cadastrados/pets-cadastrados.page';
@@ -15,21 +19,18 @@ import { Pet } from '../models/pet.models';
 export class HomePage {
   public url = 'https://dog.ceo/api/breeds/image/random';
   // public imagem = '';
-  public result:any = {};
+  public result: any = {};
   dados: any = {};
 
   pet: Pet = {
     nome: '',
     idade: null,
-    imagem:'',
-    
+    imagem: '',
   };
   // public  mandanome = this.pet.nome;
   // public mandaidade = this.pet.idade;
   LabelBotaoCadastrar = 'CADASTRAR';
   LabelBotaoConsultar = 'CONSULTAR';
-
- 
 
   constructor(
     public petService: PetService,
@@ -37,7 +38,7 @@ export class HomePage {
     public nav: NavController,
     private http: HttpClient
   ) {}
-  
+
   gerar() {
     this.consultaApi().subscribe(
       (resp) => {
@@ -49,31 +50,29 @@ export class HomePage {
   }
 
   consultaApi() {
+    // console.log(this.http);
     return this.http.get(this.url);
-    console.log(this.http);
+    
   }
-  
+
   async salvandoPet() {
-    
-        this.petService.salvarPet(this.pet);
-    this.pet.nome = '';
-    this.pet.idade = null;
-    this.pet.imagem = '';
-    const toast = await this.toast.create({
-      color: 'success',
-      message: 'Salvo com sucesso.',
-      position: 'bottom',
-      duration: 500,
-    });
-    toast.present();
-     
-    
+    if (this.pet.nome == '' || this.pet.idade == null) {
+      // localStorage.setItem(this.petService.key, JSON.stringify(this.petService));
+      
+      this.exibeToast('Preencha os campos necesssários.', 'danger');
+    } else {
+      this.petService.salvarPet(this.pet);
+      this.pet.nome = '';
+      this.pet.idade = null;
+      this.pet.imagem = '';
+
+      this.exibeToast('Cadastrado com sucesso', 'success');
+    }
+
     // this.nav.navigateForward('pets-cadastrados');
   }
 
-  
   // if( this.mandanome == '' || this.mandaidade == null) {
-
 
   //    this.exibeToast('Preencha os campos necessários', 'danger');
 
@@ -88,14 +87,15 @@ export class HomePage {
     this.nav.navigateForward('pets-cadastrados');
   }
 
-  
   async exibeToast(msg: string, cor: string) {
     const toast = await this.toast.create({
       message: msg,
-      duration: 1500,
-      position: 'top',
+      duration: 1000,
+      position: 'middle',
       animated: true,
       color: cor,
     });
+
+    toast.present();
   }
 }
