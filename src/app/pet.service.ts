@@ -8,7 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PetService {
   key = 'pets';
+  
   url = 'https://dog.ceo/api/breeds/image/random';
+  public result: any = {};
 
   constructor(private http: HttpClient) {}
 
@@ -36,4 +38,22 @@ export class PetService {
   buscarImagem(quantidade:number) {
     return this.http.get(this.url+"/"+quantidade);
   }
+
+  gerar() {
+    return new Promise<string>(async (resolve, reject) => {
+      try {
+        const resp = await this.consultaApi().toPromise();
+        this.result = resp;
+        resolve(this.result.message);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
+
+  consultaApi() {
+    return this.http.get(this.url);
+  }
+
 }

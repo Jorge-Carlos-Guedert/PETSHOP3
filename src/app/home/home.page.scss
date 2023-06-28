@@ -1,14 +1,11 @@
-.message {
-  color: rgba(88, 87, 87, 0.822);
-  font-size: 14px;
-  color: royalblue;
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+
 .form {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  max-width: 200px;
+  gap: 10px;
+  max-width: 300px;
   background-color: #fff;
   padding: 40px;
   border-radius: 20px;
@@ -18,50 +15,39 @@
   color: #222;
 }
 
-.cadastre{
-  // margin: 2px ;
-  // border: red ;
-  // border-style: solid;
+
+.cadastre {
   align-items: center;
   display: flex;
   flex-direction: column;
   text-align: center;
   font-size: large;
-  
 }
 
-.insira{
-  // margin: 5px ;
-  // border: red ;
-  // border-style: solid;
+
+.form label {
+  position: relative;
+}
+
+
+.insira {
   align-items: center;
   display: flex;
   flex-direction: column;
   text-align: center;
-  
 }
 
-.label {
-  // margin-top: 5px ;
-  // border: red ;
-  // border-style: solid;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15rem;
-}
 
-.input {
-  margin-top: 10px;
-  gap: 15rem;
+.form label .input {
   width: 100%;
   padding: 10px 10px 20px 10px;
   outline: 0;
-  border: 1px solid rgba(105, 105, 105, 0.397);
+  border: 1px solid rgba(105, 105, 0.397);
   border-radius: 10px;
 }
 
-.input + span {
+
+.form label .input + span {
   position: absolute;
   left: 10px;
   top: 15px;
@@ -70,24 +56,22 @@
   transition: 0.3s ease;
 }
 
-.input:placeholder-shown + span {
- top: 15px;
- font-size: 0.9rem;
+
+.form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9rem;
 }
 
-.input:focus + span,
+
+.form label.input:focus + span,
 .input:valid + span {
   top: 30px;
   font-size: 0.7rem;
   font-weight: 600;
 }
 
-.botaoCadastrar {
-  margin-top: 10px;
-  gap: 4rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+
+.botaoCadastrar .botaoConsultar {
   border: none;
   outline: none;
   background-color: royalblue;
@@ -98,41 +82,13 @@
   transform: 0.3s ease;
 }
 
-.botaoConsultar {
-  margin-top: 10px;
-  gap: 4rem;
-  border: none;
-  outline: none;
-  background-color: royalblue;
-  padding: 10px;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 1rem;
-  transform: 0.3s ease;
-}
 
 .flex {
-  
-  height: 100%;
-  margin: 5px ;
-  // border: red ;
-  // border-style: solid;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-left: 5rem;
-  // display: flex;
+  align-items: center;
   width: 100%;
-  //gap: 50px;
+  gap: 6px;
 }
 
-@keyframes pulse {
-  from {
-    transform: escale(0.9);
-    opacity: 1;
-  }
-  to {
-    transform: scale(1.8);
-    opacity: 0;
-  }
-}
+
