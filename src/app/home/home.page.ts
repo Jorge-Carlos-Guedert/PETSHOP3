@@ -18,7 +18,7 @@ import { Pet } from '../models/pet.models';
 })
 export class HomePage {
   public url = 'https://dog.ceo/api/breeds/image/random';
-  // public imagem = '';
+  
   public result: any = {};
   dados: any = {};
 
@@ -31,6 +31,7 @@ export class HomePage {
   // public mandaidade = this.pet.idade;
   LabelBotaoCadastrar = 'CADASTRAR';
   LabelBotaoConsultar = 'CONSULTAR';
+  imagem = '';
 
   constructor(
     public petService: PetService,
@@ -39,21 +40,10 @@ export class HomePage {
     private http: HttpClient
   ) {}
 
-  gerar() {
-    this.consultaApi().subscribe(
-      (resp) => {
-        this.result = resp;
-        this.pet.imagem = this.result.message;
-      },
-      (error) => {}
-    );
-  }
-
-  consultaApi() {
-    // console.log(this.http);
-    return this.http.get(this.url);
-    
-  }
+    async ngOnInit(){
+   this.imagem = await  this.petService.gerar();
+    }
+  
 
   async salvandoPet() {
     if (this.pet.nome == '' || this.pet.idade == null) {
@@ -61,7 +51,7 @@ export class HomePage {
       
       this.exibeToast('Preencha os campos necesssários.', 'danger');
     } else {
-      this.petService.salvarPet(this.pet);
+      this.petService.salvarPet(this.pet.nome, this.pet.idade);
       this.pet.nome = '';
       this.pet.idade = null;
       this.pet.imagem = '';
@@ -69,7 +59,7 @@ export class HomePage {
       this.exibeToast('Cadastrado com sucesso', 'success');
     }
 
-    // this.nav.navigateForward('pets-cadastrados');
+    this.nav.navigateForward('pets-cadastrados');
   }
 
   // if( this.mandanome == '' || this.mandaidade == null) {

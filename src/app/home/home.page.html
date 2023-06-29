@@ -9,8 +9,8 @@
 
 
   <div id="container">
-    <img src="http://wallpapercave.com/wp/wp12146395.jpg" />
-    <!-- <img src={{imagem}}/> -->
+    <!-- <img src="http://wallpapercave.com/wp/wp12146395.jpg" /> -->
+    <img src={{imagem}} width="380" height="300" />
   </div>
 
 
@@ -27,7 +27,7 @@
             <label position="floating">
               <ion-input
                 required
-                placeholder=""
+                placeholder="Nome"
                 type="text"
                 class="input"
                 style="width: 110px"
@@ -36,13 +36,13 @@
                 [(ngModel)]="pet.nome"
               >
               </ion-input>
-              <span>Nome</span>
+              
             </label>
      
             <label>
               <ion-input
                 required
-                placeholder=""
+                placeholder="Idade"
                 type="number"
                 class="input"
                 style="width: 110px"
@@ -53,7 +53,7 @@
                
               >
               </ion-input>
-              <span>Idade</span>
+              
             </label>
      
             <ion-row>

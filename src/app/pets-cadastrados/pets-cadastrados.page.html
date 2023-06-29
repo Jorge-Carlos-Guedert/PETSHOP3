@@ -1,16 +1,16 @@
  <ion-content [fullscreen]="true" class="content">
-  <div class="divcard">
+  <div class="divcard" *ngFor="let end of petList">
     <ion-card class="card">
       <!-- <img src="http://wallpapercave.com/wp/wp12146395.jpg" /> -->
-      <img src="{{imagem}}" width="100%" height="auto" />
-      <ion-card-header class="cardheader">cardheader IDADE:{{ Anos
-        <ion-card-subtitle class="cardsubtitle">NOME: {{NOMECACHORRO</ion-card-subtitle>
+      <img src="{{end.img}}" width="100%" height="auto" />
+      <ion-card-header class="cardheader">cardheader IDADE: {{end.idade}} Anos
+        <ion-card-subtitle class="cardsubtitle">NOME: {{end.nome}}</ion-card-subtitle>
       </ion-card-header> 
       <ion-row class="row">
         <ion-col></ion-col>
         <ion-col ></ion-col>
         <ion-col class="coltrash">
-          <ion-button size="small" color="danger">
+          <ion-button size="small" color="danger" (click)="deletarPet(end.nome)">
             <ion-icon name="trash-outline"></ion-icon>
             <ion-label style="margin-top: 0; margin-left: 6cqh"
               >EXCLUIR</ion-label

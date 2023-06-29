@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PetService {
   key = 'pets';
-  
+  colecaoCachorros:any [] = [];
   url = 'https://dog.ceo/api/breeds/image/random';
   public result: any = {};
 
@@ -25,14 +25,45 @@ export class PetService {
     console.log(listaCachorros);
   }
 
-  salvarPet(pet: Pet) {
-    var pets = this.getPets();
-    pets.push(pet);
-    localStorage.setItem(this.key, JSON.stringify(pets));
+  async salvarPet(nomes: string, idades: number) {
+    const pets = {
+      nome:nomes,
+      idade:idades,
+      img: await this.gerar()
+    }
+    // pets.push(pet);
+    // localStorage.setItem(this.key, JSON.stringify(pets));
+    const values = localStorage.getItem(this.key);
+
+    if(!values) {
+      this.colecaoCachorros.push(pets)
+      localStorage.setItem(this.key, JSON.stringify(this.colecaoCachorros));
+
+    } else {
+      const colecao: any[] = this.listarPet()!;
+      colecao.push(pets);
+      localStorage.setItem(this.key, JSON.stringify(colecao))
+    }
   }
 
-  limparPets() {
-    localStorage.removeItem(this.key);
+  listarPet(){
+    const values =localStorage.getItem(this.key);
+
+    if(!values) return;
+
+    const colecao:any[] = JSON.parse(values);
+    console.log(colecao)
+    return colecao;
+  }
+
+
+
+
+
+  deletar(param: any) {
+    const values = this.listarPet();
+    const result = values?.filter((pets) => pets.nome !== param);
+    localStorage.setItem(this.key, JSON.stringify(result));
   }
 
   buscarImagem(quantidade:number) {
@@ -57,3 +88,8 @@ export class PetService {
   }
 
 }
+
+
+
+//funcional
+
